@@ -1,12 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import ParticleField from '@/components/ParticleField';
+import FloatingOrbs from '@/components/FloatingOrbs';
+import GeometricShapes from '@/components/GeometricShapes';
+import HeroSection from '@/components/HeroSection';
+import FeaturesSection from '@/components/FeaturesSection';
+import ShowcaseSection from '@/components/ShowcaseSection';
+import StatsSection from '@/components/StatsSection';
+import FooterSection from '@/components/FooterSection';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="relative min-h-screen bg-background overflow-x-hidden">
+      {/* Background layers */}
+      <FloatingOrbs />
+      <ParticleField />
+      <GeometricShapes />
+      
+      {/* Scanline effect */}
+      <div className="fixed inset-0 pointer-events-none z-50 scanline opacity-30" />
+      
+      {/* Content */}
+      <main className="relative z-10">
+        <HeroSection />
+        <FeaturesSection />
+        <ShowcaseSection />
+        <StatsSection />
+        <FooterSection />
+      </main>
     </div>
   );
 };

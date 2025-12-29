@@ -7,28 +7,28 @@ const deals = [
     id: 1,
     name: 'RTX 4080 Super',
     discount: 25,
-    originalPrice: 139990,
-    newPrice: 104990,
-    image: '🎮',
-    endTime: new Date(Date.now() + 3600000 * 5), // 5 hours
+    originalPrice: 1199,
+    newPrice: 899,
+    image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&q=80',
+    endTime: new Date(Date.now() + 3600000 * 5),
   },
   {
     id: 2,
     name: 'Ryzen 7 7800X3D',
     discount: 20,
-    originalPrice: 48990,
-    newPrice: 39190,
-    image: '⚡',
-    endTime: new Date(Date.now() + 3600000 * 12), // 12 hours
+    originalPrice: 449,
+    newPrice: 359,
+    image: 'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&q=80',
+    endTime: new Date(Date.now() + 3600000 * 12),
   },
   {
     id: 3,
     name: 'MSI MAG B650 Tomahawk',
     discount: 30,
-    originalPrice: 28990,
-    newPrice: 20290,
-    image: '🔧',
-    endTime: new Date(Date.now() + 3600000 * 8), // 8 hours
+    originalPrice: 249,
+    newPrice: 174,
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80',
+    endTime: new Date(Date.now() + 3600000 * 8),
   },
 ];
 
@@ -100,13 +100,13 @@ const DealsSection = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neon-magenta/10 border border-neon-magenta/30 mb-6">
             <Flame className="w-5 h-5 text-neon-magenta animate-pulse" />
-            <span className="text-neon-magenta font-bold uppercase tracking-wider">Горячие предложения</span>
+            <span className="text-neon-magenta font-bold uppercase tracking-wider">Hot Deals</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-            <span className="text-gradient-aurora">Распродажа</span> дня
+            <span className="text-gradient-aurora">Daily</span> Sale
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Успейте купить по выгодной цене — предложение ограничено
+            Grab these deals before they expire — limited time only
           </p>
         </div>
 
@@ -144,13 +144,12 @@ const DealsSection = () => {
                   {/* Product image */}
                   <div className="text-center mb-6">
                     <div 
-                      className="inline-flex items-center justify-center w-24 h-24 rounded-2xl text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                      className="inline-flex items-center justify-center w-24 h-24 rounded-2xl overflow-hidden transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
                       style={{
-                        background: 'linear-gradient(135deg, hsl(var(--neon-magenta) / 0.2), hsl(var(--neon-purple) / 0.1))',
                         border: '1px solid hsl(var(--neon-magenta) / 0.3)',
                       }}
                     >
-                      {deal.image}
+                      <img src={deal.image} alt={deal.name} className="w-full h-full object-cover" />
                     </div>
                   </div>
 
@@ -162,10 +161,10 @@ const DealsSection = () => {
                   {/* Price */}
                   <div className="text-center mb-6">
                     <span className="text-3xl font-display font-bold text-neon-magenta">
-                      {deal.newPrice.toLocaleString()} ₽
+                      ${deal.newPrice.toLocaleString()}
                     </span>
                     <span className="block text-muted-foreground line-through mt-1">
-                      {deal.originalPrice.toLocaleString()} ₽
+                      ${deal.originalPrice.toLocaleString()}
                     </span>
                   </div>
 
@@ -174,9 +173,9 @@ const DealsSection = () => {
                     <Clock className="w-5 h-5 text-neon-cyan animate-pulse" />
                     <div className="flex gap-2">
                       {[
-                        { value: time.hours, label: 'ч' },
-                        { value: time.minutes, label: 'м' },
-                        { value: time.seconds, label: 'с' },
+                        { value: time.hours, label: 'h' },
+                        { value: time.minutes, label: 'm' },
+                        { value: time.seconds, label: 's' },
                       ].map((item, i) => (
                         <div key={i} className="flex items-center">
                           <span 
@@ -202,7 +201,7 @@ const DealsSection = () => {
                       boxShadow: '0 0 30px hsl(var(--neon-magenta) / 0.3)',
                     }}
                   >
-                    <span>Купить</span>
+                    <span>Buy Now</span>
                     <ArrowRight size={18} className="transition-transform group-hover/btn:translate-x-1" />
                   </button>
                 </div>
@@ -222,7 +221,7 @@ const DealsSection = () => {
           }}
         >
           <NeonButton variant="magenta">
-            Все акции
+            All Deals
           </NeonButton>
         </div>
       </div>

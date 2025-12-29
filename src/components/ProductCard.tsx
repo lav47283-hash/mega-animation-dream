@@ -60,32 +60,29 @@ const ProductCard = ({
       >
         {/* Image container */}
         <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-muted/50 to-muted/20">
-          {/* Product image placeholder */}
-          <div 
-            className="absolute inset-0 flex items-center justify-center transition-transform duration-700"
+          {/* Product image */}
+          <img 
+            src={image}
+            alt={name}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
             style={{
-              transform: isHovered ? 'scale(1.1) rotate(2deg)' : 'scale(1)',
+              transform: isHovered ? 'scale(1.1)' : 'scale(1)',
             }}
-          >
-            <div 
-              className="w-3/4 h-3/4 rounded-2xl flex items-center justify-center"
-              style={{
-                background: `linear-gradient(135deg, hsl(var(--neon-${color}) / 0.2), hsl(var(--neon-${color}) / 0.05))`,
-                border: `1px solid hsl(var(--neon-${color}) / 0.3)`,
-              }}
-            >
-              <span className="text-6xl opacity-80">{image}</span>
-            </div>
-          </div>
+          />
+          
+          {/* Overlay gradient */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent"
+          />
 
           {/* Badge */}
           {badge && (
             <div 
               className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1"
               style={{
-                background: badge === 'Хит' 
+                background: badge === 'Hot' 
                   ? 'linear-gradient(135deg, hsl(var(--neon-magenta)), hsl(var(--neon-purple)))' 
-                  : badge === 'Новинка'
+                  : badge === 'New'
                   ? 'linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-blue)))'
                   : 'linear-gradient(135deg, hsl(var(--destructive)), hsl(var(--neon-magenta)))',
                 color: 'white',
@@ -135,7 +132,7 @@ const ProductCard = ({
               }}
             >
               <ShoppingCart size={16} className={isAddingToCart ? 'animate-bounce' : ''} />
-              {isAddingToCart ? 'Добавлено!' : 'В корзину'}
+              {isAddingToCart ? 'Added!' : 'Add to Cart'}
             </button>
           </div>
         </div>
@@ -174,11 +171,11 @@ const ProductCard = ({
                 WebkitTextFillColor: 'transparent',
               }}
             >
-              {price.toLocaleString()} ₽
+              ${price.toLocaleString()}
             </span>
             {oldPrice && (
               <span className="text-sm text-muted-foreground line-through">
-                {oldPrice.toLocaleString()} ₽
+                ${oldPrice.toLocaleString()}
               </span>
             )}
           </div>

@@ -28,32 +28,32 @@ const FooterSection = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-display font-bold text-gradient mb-4">
-              ТЕХНОМАРКЕТ
+              TECHNOMARKET
             </h3>
             <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-              Лучший магазин компьютерной техники и комплектующих. Работаем с 2019 года.
+              The best computer hardware and components store. In business since 2019.
             </p>
             <div className="space-y-2">
-              <a href="tel:+74951234567" className="flex items-center gap-2 text-muted-foreground hover:text-neon-cyan transition-colors text-sm">
+              <a href="tel:+18001234567" className="flex items-center gap-2 text-muted-foreground hover:text-neon-cyan transition-colors text-sm">
                 <Phone size={16} />
-                +7 (495) 123-45-67
+                +1 (800) 123-4567
               </a>
-              <a href="mailto:info@technomarket.ru" className="flex items-center gap-2 text-muted-foreground hover:text-neon-cyan transition-colors text-sm">
+              <a href="mailto:info@technomarket.com" className="flex items-center gap-2 text-muted-foreground hover:text-neon-cyan transition-colors text-sm">
                 <Mail size={16} />
-                info@technomarket.ru
+                info@technomarket.com
               </a>
               <p className="flex items-center gap-2 text-muted-foreground text-sm">
                 <MapPin size={16} />
-                Москва, ул. Примерная, 42
+                New York, NY 10001
               </p>
             </div>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-display font-bold text-foreground mb-4">Каталог</h4>
+            <h4 className="font-display font-bold text-foreground mb-4">Catalog</h4>
             <div className="flex flex-col gap-2">
-              {['Видеокарты', 'Процессоры', 'Материнские платы', 'SSD накопители', 'Охлаждение'].map((link) => (
+              {['Graphics Cards', 'Processors', 'Motherboards', 'SSD Storage', 'Cooling'].map((link) => (
                 <a
                   key={link}
                   href="#"
@@ -67,9 +67,9 @@ const FooterSection = () => {
 
           {/* Info */}
           <div>
-            <h4 className="font-display font-bold text-foreground mb-4">Покупателям</h4>
+            <h4 className="font-display font-bold text-foreground mb-4">Customer Service</h4>
             <div className="flex flex-col gap-2">
-              {['Доставка и оплата', 'Гарантия', 'Возврат товара', 'Акции', 'Отзывы'].map((link) => (
+              {['Shipping & Payment', 'Warranty', 'Returns', 'Deals', 'Reviews'].map((link) => (
                 <a
                   key={link}
                   href="#"
@@ -83,16 +83,16 @@ const FooterSection = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-display font-bold text-foreground mb-4">Подписка</h4>
+            <h4 className="font-display font-bold text-foreground mb-4">Newsletter</h4>
             <p className="text-muted-foreground text-sm mb-4">
-              Получайте уведомления о скидках и новинках
+              Get notified about deals and new arrivals
             </p>
             <div className="flex gap-2">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Ваш email"
+                placeholder="Your email"
                 className="flex-1 px-4 py-2 rounded-lg bg-muted/50 border border-border/50 text-sm focus:outline-none focus:border-neon-cyan/50 transition-colors"
               />
               <button
@@ -110,7 +110,7 @@ const FooterSection = () => {
             </div>
             {isSubscribed && (
               <p className="text-neon-cyan text-sm mt-2 animate-fade-in">
-                Спасибо за подписку!
+                Thanks for subscribing!
               </p>
             )}
           </div>
@@ -119,10 +119,10 @@ const FooterSection = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted-foreground text-sm">
-            © 2024 ТЕХНОМАРКЕТ. Все права защищены.
+            © 2026 TECHNOMARKET. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {['Политика конфиденциальности', 'Пользовательское соглашение'].map((link) => (
+            {['Privacy Policy', 'Terms of Service'].map((link) => (
               <a
                 key={link}
                 href="#"

@@ -19,14 +19,14 @@ const HeroSection = () => {
         >
           <span className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
           <span className="text-neon-cyan text-sm font-medium tracking-wider uppercase">
-            Топовая техника 2024
+            Top Tech 2024
           </span>
         </div>
 
         {/* Main heading with letter animation */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight">
-          <AnimatedText text="ТЕХНО" className="text-gradient inline" delay={400} />
-          <AnimatedText text="МАРКЕТ" className="text-foreground inline" delay={800} />
+          <AnimatedText text="TECHNO" className="text-gradient inline" delay={400} />
+          <AnimatedText text="MARKET" className="text-foreground inline" delay={800} />
         </h1>
 
         {/* Subtitle */}
@@ -34,10 +34,10 @@ const HeroSection = () => {
           className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 animate-fade-in"
           style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}
         >
-          Лучшие 
-          <span className="text-neon-cyan"> видеокарты</span>,
-          <span className="text-neon-magenta"> процессоры </span>
-          и комплектующие по выгодным ценам
+          Best 
+          <span className="text-neon-cyan"> graphics cards</span>,
+          <span className="text-neon-magenta"> processors </span>
+          and components at great prices
         </p>
 
         {/* Features row */}
@@ -46,9 +46,9 @@ const HeroSection = () => {
           style={{ animationDelay: '1.4s', animationFillMode: 'forwards' }}
         >
           {[
-            { icon: Cpu, text: 'Оригинальная техника' },
-            { icon: Zap, text: 'Быстрая доставка' },
-            { icon: Shield, text: 'Гарантия 3 года' },
+            { icon: Cpu, text: 'Original Products' },
+            { icon: Zap, text: 'Fast Delivery' },
+            { icon: Shield, text: '3 Year Warranty' },
           ].map((item, i) => (
             <div 
               key={i}
@@ -66,10 +66,10 @@ const HeroSection = () => {
           style={{ animationDelay: '1.6s', animationFillMode: 'forwards' }}
         >
           <NeonButton variant="cyan">
-            Каталог товаров
+            Browse Catalog
           </NeonButton>
           <NeonButton variant="magenta">
-            Акции и скидки
+            View Deals
           </NeonButton>
         </div>
       </div>

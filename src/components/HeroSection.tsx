@@ -25,7 +25,7 @@ const HeroSection = () => {
 
         {/* Main heading with letter animation */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight">
-          <AnimatedText text="TECHNO" className="text-gradient inline" delay={400} />
+          <AnimatedText text="TECHNO" className="text-foreground inline" delay={400} />
           <AnimatedText text="MARKET" className="text-foreground inline" delay={800} />
         </h1>
 

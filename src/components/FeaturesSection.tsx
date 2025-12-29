@@ -1,42 +1,42 @@
 import { useEffect, useRef, useState } from 'react';
 import GlowingCard from './GlowingCard';
-import { Sparkles, Zap, Layers, Palette, Code, Rocket } from 'lucide-react';
+import { Truck, Shield, Headphones, CreditCard, RotateCcw, Award } from 'lucide-react';
 
 const features = [
   {
-    icon: Sparkles,
-    title: 'Магия анимаций',
-    description: 'Плавные переходы и эффекты, которые оживляют каждый элемент',
+    icon: Truck,
+    title: 'Быстрая доставка',
+    description: 'Доставим заказ по Москве за 2 часа, по России — за 1-3 дня',
     color: 'cyan',
   },
   {
-    icon: Zap,
-    title: 'Молниеносная скорость',
-    description: 'Оптимизированная производительность для максимально плавного опыта',
+    icon: Shield,
+    title: 'Гарантия 3 года',
+    description: 'Официальная гарантия от производителя на всю технику',
     color: 'magenta',
   },
   {
-    icon: Layers,
-    title: 'Глубина дизайна',
-    description: '3D-эффекты и параллакс создают ощущение пространства',
+    icon: Headphones,
+    title: 'Поддержка 24/7',
+    description: 'Наши эксперты помогут с выбором и настройкой',
     color: 'purple',
   },
   {
-    icon: Palette,
-    title: 'Неоновая палитра',
-    description: 'Яркие цвета и градиенты, которые притягивают взгляд',
+    icon: CreditCard,
+    title: 'Оплата частями',
+    description: 'Рассрочка 0% на 12 месяцев без переплаты',
     color: 'cyan',
   },
   {
-    icon: Code,
-    title: 'Чистый код',
-    description: 'Элегантные решения на основе современных технологий',
+    icon: RotateCcw,
+    title: 'Лёгкий возврат',
+    description: '30 дней на возврат товара без объяснения причин',
     color: 'magenta',
   },
   {
-    icon: Rocket,
-    title: 'Инновации',
-    description: 'Передовые техники для создания уникального опыта',
+    icon: Award,
+    title: 'Только оригинал',
+    description: 'Работаем напрямую с производителями',
     color: 'purple',
   },
 ];
@@ -71,19 +71,19 @@ const FeaturesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-4">
+    <section ref={sectionRef} className="relative py-24 px-4">
       {/* Section header */}
-      <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
-          <span className="text-gradient">Возможности</span> без границ
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
+          <span className="text-gradient">Почему</span> выбирают нас
         </h2>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Каждый элемент создан с вниманием к деталям и любовью к дизайну
+        <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+          Мы делаем покупку техники простой и приятной
         </p>
       </div>
 
       {/* Features grid */}
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((feature, index) => {
           const Icon = feature.icon;
           const isVisible = visibleCards.includes(index);
@@ -104,30 +104,22 @@ const FeaturesSection = () => {
                 <div className="flex flex-col h-full">
                   {/* Icon container */}
                   <div 
-                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${colorMap[feature.color as keyof typeof colorMap]}`}
+                    className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 ${colorMap[feature.color as keyof typeof colorMap]}`}
                     style={{
                       background: `linear-gradient(135deg, hsl(var(--neon-${feature.color}) / 0.2), transparent)`,
                       border: `1px solid hsl(var(--neon-${feature.color}) / 0.3)`,
                     }}
                   >
-                    <Icon size={28} className="animate-pulse" />
+                    <Icon size={24} />
                   </div>
                   
                   {/* Content */}
-                  <h3 className={`text-xl font-display font-bold mb-3 ${colorMap[feature.color as keyof typeof colorMap]}`}>
+                  <h3 className={`text-lg font-display font-bold mb-2 ${colorMap[feature.color as keyof typeof colorMap]}`}>
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {feature.description}
                   </p>
-                  
-                  {/* Hover line */}
-                  <div 
-                    className="mt-6 h-0.5 w-0 group-hover:w-full transition-all duration-500"
-                    style={{
-                      background: `linear-gradient(90deg, hsl(var(--neon-${feature.color})), transparent)`,
-                    }}
-                  />
                 </div>
               </GlowingCard>
             </div>

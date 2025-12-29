@@ -2,8 +2,11 @@ import ParticleField from '@/components/ParticleField';
 import FloatingOrbs from '@/components/FloatingOrbs';
 import GeometricShapes from '@/components/GeometricShapes';
 import HeroSection from '@/components/HeroSection';
+import CategoriesSection from '@/components/CategoriesSection';
+import ProductsSection from '@/components/ProductsSection';
+import DealsSection from '@/components/DealsSection';
 import FeaturesSection from '@/components/FeaturesSection';
-import ShowcaseSection from '@/components/ShowcaseSection';
+import BrandsSection from '@/components/BrandsSection';
 import StatsSection from '@/components/StatsSection';
 import FooterSection from '@/components/FooterSection';
 
@@ -21,8 +24,11 @@ const Index = () => {
       {/* Content */}
       <main className="relative z-10">
         <HeroSection />
+        <CategoriesSection />
+        <ProductsSection />
+        <DealsSection />
         <FeaturesSection />
-        <ShowcaseSection />
+        <BrandsSection />
         <StatsSection />
         <FooterSection />
       </main>

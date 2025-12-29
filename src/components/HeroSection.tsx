@@ -1,38 +1,12 @@
-import { useState, useEffect } from 'react';
 import AnimatedText from './AnimatedText';
 import NeonButton from './NeonButton';
+import { Cpu, Zap, Shield } from 'lucide-react';
 
 const HeroSection = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Parallax background elements */}
-      <div 
-        className="absolute inset-0 transition-transform duration-100"
-        style={{
-          transform: `translate(${mousePos.x / 100}px, ${mousePos.y / 100}px)`,
-        }}
-      >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background grid */}
+      <div className="absolute inset-0">
         <div className="grid-bg absolute inset-0 opacity-30" />
       </div>
 
@@ -45,70 +19,94 @@ const HeroSection = () => {
         >
           <span className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
           <span className="text-neon-cyan text-sm font-medium tracking-wider uppercase">
-            Добро пожаловать в будущее
+            Топовая техника 2024
           </span>
         </div>
 
         {/* Main heading with letter animation */}
-        <h1 
-          className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight"
-          style={{
-            transform: `translateY(${scrollY * 0.3}px)`,
-          }}
-        >
-          <AnimatedText text="КРЕАТИВНЫЙ" className="text-gradient block" delay={400} />
-          <AnimatedText text="ЦИФРОВОЙ" className="text-foreground block" delay={800} />
-          <AnimatedText text="ОПЫТ" className="text-gradient-aurora block" delay={1200} />
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight">
+          <AnimatedText text="ТЕХНО" className="text-gradient inline" delay={400} />
+          <AnimatedText text="МАРКЕТ" className="text-foreground inline" delay={800} />
         </h1>
 
-        {/* Subtitle with reveal animation */}
+        {/* Subtitle */}
         <p 
-          className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-12 opacity-0 animate-fade-in"
-          style={{ animationDelay: '1.6s', animationFillMode: 'forwards' }}
+          className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-8 opacity-0 animate-fade-in"
+          style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}
         >
-          Погрузитесь в мир невероятных анимаций, 
-          <span className="text-neon-cyan"> интерактивных эффектов </span>
-          и 
-          <span className="text-neon-magenta"> футуристического дизайна</span>
+          Лучшие 
+          <span className="text-neon-cyan"> видеокарты</span>,
+          <span className="text-neon-magenta"> процессоры </span>
+          и комплектующие по выгодным ценам
         </p>
+
+        {/* Features row */}
+        <div 
+          className="flex flex-wrap justify-center gap-6 mb-12 opacity-0 animate-fade-in"
+          style={{ animationDelay: '1.4s', animationFillMode: 'forwards' }}
+        >
+          {[
+            { icon: Cpu, text: 'Оригинальная техника' },
+            { icon: Zap, text: 'Быстрая доставка' },
+            { icon: Shield, text: 'Гарантия 3 года' },
+          ].map((item, i) => (
+            <div 
+              key={i}
+              className="flex items-center gap-2 text-muted-foreground hover:text-neon-cyan transition-colors duration-300"
+            >
+              <item.icon size={20} className="text-neon-cyan" />
+              <span>{item.text}</span>
+            </div>
+          ))}
+        </div>
 
         {/* CTA Buttons */}
         <div 
           className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in"
-          style={{ animationDelay: '2s', animationFillMode: 'forwards' }}
+          style={{ animationDelay: '1.6s', animationFillMode: 'forwards' }}
         >
           <NeonButton variant="cyan">
-            Исследовать
+            Каталог товаров
           </NeonButton>
           <NeonButton variant="magenta">
-            Узнать больше
+            Акции и скидки
           </NeonButton>
-        </div>
-
-        {/* Scroll indicator */}
-        <div 
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in"
-          style={{ animationDelay: '2.5s', animationFillMode: 'forwards' }}
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-muted-foreground text-sm uppercase tracking-widest">Прокрути</span>
-            <div className="w-6 h-10 rounded-full border-2 border-neon-cyan/50 flex justify-center pt-2">
-              <div className="w-1.5 h-3 rounded-full bg-neon-cyan animate-bounce" />
-            </div>
-          </div>
         </div>
       </div>
 
-      {/* Decorative orbs following cursor */}
-      <div 
-        className="fixed w-64 h-64 pointer-events-none transition-all duration-500 ease-out z-50"
-        style={{
-          left: mousePos.x - 128,
-          top: mousePos.y - 128,
-          background: 'radial-gradient(circle, hsl(185, 100%, 50%, 0.1), transparent 70%)',
-          filter: 'blur(40px)',
-        }}
-      />
+      {/* Floating tech elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* CPU icon floating */}
+        <div 
+          className="absolute top-1/4 left-10 w-16 h-16 opacity-20 floating"
+          style={{ animationDelay: '0s' }}
+        >
+          <Cpu className="w-full h-full text-neon-cyan" />
+        </div>
+        
+        {/* GPU stylized */}
+        <div 
+          className="absolute top-1/3 right-16 w-20 h-12 border-2 border-neon-magenta/30 rounded-lg floating-delayed opacity-20"
+        >
+          <div className="absolute inset-2 grid grid-cols-3 gap-1">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="bg-neon-magenta/40 rounded-sm" />
+            ))}
+          </div>
+        </div>
+
+        {/* RAM stick */}
+        <div 
+          className="absolute bottom-1/3 left-1/4 w-24 h-6 border border-neon-purple/30 rounded floating opacity-20"
+          style={{ animationDelay: '-2s' }}
+        >
+          <div className="h-full flex gap-0.5 p-1">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="flex-1 bg-neon-purple/40 rounded-sm" />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

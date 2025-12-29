@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
 const stats = [
-  { value: 100, suffix: '+', label: 'Анимаций', color: 'cyan' },
-  { value: 50, suffix: 'K', label: 'Строк кода', color: 'magenta' },
-  { value: 99, suffix: '%', label: 'Плавности', color: 'purple' },
-  { value: 24, suffix: '/7', label: 'Магии', color: 'cyan' },
+  { value: 50000, suffix: '+', label: 'Довольных клиентов', color: 'cyan' },
+  { value: 15000, suffix: '+', label: 'Товаров в наличии', color: 'magenta' },
+  { value: 99, suffix: '%', label: 'Положительных отзывов', color: 'purple' },
+  { value: 5, suffix: ' лет', label: 'На рынке', color: 'cyan' },
 ];
 
 const StatsSection = () => {
@@ -60,9 +60,9 @@ const StatsSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-4">
+    <section ref={sectionRef} className="relative py-24 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <div
               key={index}
@@ -76,7 +76,7 @@ const StatsSection = () => {
             >
               {/* Background glow */}
               <div 
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
                 style={{
                   background: `radial-gradient(circle at center, hsl(var(--neon-${stat.color}) / 0.2), transparent 70%)`,
                   filter: 'blur(40px)',
@@ -84,25 +84,17 @@ const StatsSection = () => {
               />
 
               {/* Content */}
-              <div className="relative p-8 rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm hover:border-neon-cyan/30 transition-all duration-500 hover:transform hover:scale-105">
+              <div className="relative p-6 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm hover:border-neon-cyan/30 transition-all duration-500 hover:transform hover:scale-105">
                 {/* Number */}
-                <div className={`text-5xl md:text-6xl font-display font-bold bg-gradient-to-r ${colorMap[stat.color as keyof typeof colorMap]} bg-clip-text text-transparent`}>
-                  {counts[index]}
-                  <span className="text-3xl">{stat.suffix}</span>
+                <div className={`text-4xl md:text-5xl font-display font-bold bg-gradient-to-r ${colorMap[stat.color as keyof typeof colorMap]} bg-clip-text text-transparent`}>
+                  {counts[index].toLocaleString()}
+                  <span className="text-2xl">{stat.suffix}</span>
                 </div>
 
                 {/* Label */}
-                <div className="mt-4 text-muted-foreground uppercase tracking-widest text-sm">
+                <div className="mt-3 text-muted-foreground text-sm">
                   {stat.label}
                 </div>
-
-                {/* Decorative line */}
-                <div 
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-0.5 transition-all duration-500"
-                  style={{
-                    background: `linear-gradient(90deg, transparent, hsl(var(--neon-${stat.color})), transparent)`,
-                  }}
-                />
               </div>
             </div>
           ))}

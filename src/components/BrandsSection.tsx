@@ -44,7 +44,7 @@ const BrandsSection = () => {
         }}
       >
         <h2 className="text-2xl md:text-3xl font-display font-bold text-muted-foreground">
-          Официальный партнёр ведущих <span className="text-gradient">брендов</span>
+          Official Partner of Leading <span className="text-gradient">Brands</span>
         </h2>
       </div>
 

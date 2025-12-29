@@ -5,38 +5,38 @@ import { Truck, Shield, Headphones, CreditCard, RotateCcw, Award } from 'lucide-
 const features = [
   {
     icon: Truck,
-    title: 'Быстрая доставка',
-    description: 'Доставим заказ по Москве за 2 часа, по России — за 1-3 дня',
+    title: 'Fast Delivery',
+    description: 'Same-day delivery in major cities, 1-3 days nationwide',
     color: 'cyan',
   },
   {
     icon: Shield,
-    title: 'Гарантия 3 года',
-    description: 'Официальная гарантия от производителя на всю технику',
+    title: '3 Year Warranty',
+    description: 'Official manufacturer warranty on all products',
     color: 'magenta',
   },
   {
     icon: Headphones,
-    title: 'Поддержка 24/7',
-    description: 'Наши эксперты помогут с выбором и настройкой',
+    title: '24/7 Support',
+    description: 'Our experts help you choose and setup your gear',
     color: 'purple',
   },
   {
     icon: CreditCard,
-    title: 'Оплата частями',
-    description: 'Рассрочка 0% на 12 месяцев без переплаты',
+    title: 'Pay in Installments',
+    description: '0% interest financing for up to 12 months',
     color: 'cyan',
   },
   {
     icon: RotateCcw,
-    title: 'Лёгкий возврат',
-    description: '30 дней на возврат товара без объяснения причин',
+    title: 'Easy Returns',
+    description: '30-day hassle-free returns, no questions asked',
     color: 'magenta',
   },
   {
     icon: Award,
-    title: 'Только оригинал',
-    description: 'Работаем напрямую с производителями',
+    title: '100% Authentic',
+    description: 'We work directly with manufacturers',
     color: 'purple',
   },
 ];
@@ -75,10 +75,10 @@ const FeaturesSection = () => {
       {/* Section header */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-          <span className="text-gradient">Почему</span> выбирают нас
+          <span className="text-gradient">Why</span> Choose Us
         </h2>
         <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-          Мы делаем покупку техники простой и приятной
+          We make buying tech simple and enjoyable
         </p>
       </div>
 

@@ -1,70 +1,69 @@
 import { useRef, useState, useEffect } from 'react';
-import { Monitor, Cpu, CircuitBoard, HardDrive, Fan, MemoryStick, Cable, Gamepad2 } from 'lucide-react';
 
 const categories = [
   { 
     id: 1, 
-    name: 'Видеокарты', 
-    icon: Monitor, 
+    name: 'Graphics Cards', 
     color: 'cyan',
     count: 156,
-    gradient: 'from-neon-cyan/20 to-neon-blue/20'
+    gradient: 'from-neon-cyan/20 to-neon-blue/20',
+    image: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&q=80'
   },
   { 
     id: 2, 
-    name: 'Материнские платы', 
-    icon: CircuitBoard, 
+    name: 'Motherboards', 
     color: 'magenta',
     count: 89,
-    gradient: 'from-neon-magenta/20 to-neon-purple/20'
+    gradient: 'from-neon-magenta/20 to-neon-purple/20',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80'
   },
   { 
     id: 3, 
-    name: 'Процессоры', 
-    icon: Cpu, 
+    name: 'Processors', 
     color: 'purple',
     count: 72,
-    gradient: 'from-neon-purple/20 to-neon-cyan/20'
+    gradient: 'from-neon-purple/20 to-neon-cyan/20',
+    image: 'https://images.unsplash.com/photo-1555617981-dac3880eac6e?w=400&q=80'
   },
   { 
     id: 4, 
-    name: 'SSD накопители', 
-    icon: HardDrive, 
+    name: 'SSD Storage', 
     color: 'cyan',
     count: 134,
-    gradient: 'from-neon-cyan/20 to-neon-magenta/20'
+    gradient: 'from-neon-cyan/20 to-neon-magenta/20',
+    image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&q=80'
   },
   { 
     id: 5, 
-    name: 'Охлаждение', 
-    icon: Fan, 
+    name: 'Cooling Systems', 
     color: 'magenta',
     count: 98,
-    gradient: 'from-neon-magenta/20 to-neon-cyan/20'
+    gradient: 'from-neon-magenta/20 to-neon-cyan/20',
+    image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&q=80'
   },
   { 
     id: 6, 
-    name: 'Оперативная память', 
-    icon: MemoryStick, 
+    name: 'RAM Memory', 
     color: 'purple',
     count: 67,
-    gradient: 'from-neon-purple/20 to-neon-magenta/20'
+    gradient: 'from-neon-purple/20 to-neon-magenta/20',
+    image: 'https://images.unsplash.com/photo-1562976540-1502c2145186?w=400&q=80'
   },
   { 
     id: 7, 
-    name: 'Блоки питания', 
-    icon: Cable, 
+    name: 'Power Supplies', 
     color: 'cyan',
     count: 45,
-    gradient: 'from-neon-cyan/20 to-neon-purple/20'
+    gradient: 'from-neon-cyan/20 to-neon-purple/20',
+    image: 'https://images.unsplash.com/photo-1587202372616-b43abea06c2a?w=400&q=80'
   },
   { 
     id: 8, 
-    name: 'Периферия', 
-    icon: Gamepad2, 
+    name: 'Peripherals', 
     color: 'magenta',
     count: 203,
-    gradient: 'from-neon-magenta/20 to-neon-blue/20'
+    gradient: 'from-neon-magenta/20 to-neon-blue/20',
+    image: 'https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&q=80'
   },
 ];
 
@@ -99,17 +98,16 @@ const CategoriesSection = () => {
       {/* Section header */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">
-          <span className="text-gradient">Категории</span> товаров
+          <span className="text-gradient">Browse</span> Categories
         </h2>
         <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-          Выберите интересующую категорию и найдите идеальное решение
+          Select a category and find the perfect solution for your build
         </p>
       </div>
 
       {/* Categories grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {categories.map((category, index) => {
-          const Icon = category.icon;
           const isVisible = visibleItems.includes(index);
           const isHovered = hoveredIndex === index;
 
@@ -130,7 +128,7 @@ const CategoriesSection = () => {
             >
               {/* Card */}
               <div 
-                className={`relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm p-6 transition-all duration-500 ${
+                className={`relative overflow-hidden rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-500 ${
                   isHovered ? 'border-neon-' + category.color + '/50 scale-105' : ''
                 }`}
                 style={{
@@ -139,10 +137,15 @@ const CategoriesSection = () => {
                     : 'none',
                 }}
               >
-                {/* Background gradient */}
-                <div 
-                  className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                />
+                {/* Image */}
+                <div className="relative h-32 overflow-hidden">
+                  <img 
+                    src={category.image} 
+                    alt={category.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${category.gradient} opacity-60`} />
+                </div>
 
                 {/* Animated border */}
                 <div 
@@ -158,25 +161,7 @@ const CategoriesSection = () => {
                 />
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col items-center text-center">
-                  {/* Icon */}
-                  <div 
-                    className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-all duration-500 ${
-                      isHovered ? 'scale-110' : ''
-                    }`}
-                    style={{
-                      background: `linear-gradient(135deg, hsl(var(--neon-${category.color}) / 0.2), transparent)`,
-                      border: `1px solid hsl(var(--neon-${category.color}) / 0.3)`,
-                    }}
-                  >
-                    <Icon 
-                      size={28} 
-                      className={`text-neon-${category.color} transition-all duration-300 ${
-                        isHovered ? 'animate-pulse' : ''
-                      }`}
-                    />
-                  </div>
-
+                <div className="relative z-10 p-4 text-center">
                   {/* Name */}
                   <h3 className={`font-display font-bold text-lg mb-2 transition-colors duration-300 ${
                     isHovered ? 'text-neon-' + category.color : 'text-foreground'
@@ -188,7 +173,7 @@ const CategoriesSection = () => {
                   <span 
                     className="text-sm text-muted-foreground bg-muted/50 px-3 py-1 rounded-full"
                   >
-                    {category.count} товаров
+                    {category.count} products
                   </span>
                 </div>
 

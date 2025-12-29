@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
 const stats = [
-  { value: 50000, suffix: '+', label: 'Довольных клиентов', color: 'cyan' },
-  { value: 15000, suffix: '+', label: 'Товаров в наличии', color: 'magenta' },
-  { value: 99, suffix: '%', label: 'Положительных отзывов', color: 'purple' },
-  { value: 5, suffix: ' лет', label: 'На рынке', color: 'cyan' },
+  { value: 50000, suffix: '+', label: 'Happy Customers', color: 'cyan' },
+  { value: 15000, suffix: '+', label: 'Products in Stock', color: 'magenta' },
+  { value: 99, suffix: '%', label: 'Positive Reviews', color: 'purple' },
+  { value: 5, suffix: ' years', label: 'In Business', color: 'cyan' },
 ];
 
 const StatsSection = () => {

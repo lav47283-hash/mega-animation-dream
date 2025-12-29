@@ -1,6 +1,7 @@
 import ParticleField from '@/components/ParticleField';
 import FloatingOrbs from '@/components/FloatingOrbs';
 import GeometricShapes from '@/components/GeometricShapes';
+import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import CategoriesSection from '@/components/CategoriesSection';
 import ProductsSection from '@/components/ProductsSection';
@@ -20,6 +21,9 @@ const Index = () => {
       
       {/* Scanline effect */}
       <div className="fixed inset-0 pointer-events-none z-50 scanline opacity-30" />
+      
+      {/* Header */}
+      <Header />
       
       {/* Content */}
       <main className="relative z-10">

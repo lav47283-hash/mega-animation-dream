@@ -19,7 +19,7 @@ const HeroSection = () => {
         >
           <span className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
           <span className="text-neon-cyan text-sm font-medium tracking-wider uppercase">
-            Top Tech 2024
+            Top Tech 2026
           </span>
         </div>
 
